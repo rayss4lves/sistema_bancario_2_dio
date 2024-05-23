@@ -1,9 +1,14 @@
 import conta as fco
+import time as t
 
 def depositar(valor, saldo, extrato):
     if valor > 0:
         saldo += valor
-        extrato.append(f'Deposito de: {valor:.2f}\n')
+        horario = t.localtime()
+        formatted_time = t.strftime("%H:%M:%S -- %Y-%m-%d", horario)
+
+
+        extrato.append(f'Deposito de: {valor:.2f} as {formatted_time}')
         print('Deposito relizado com sucesso!\n')
                
     else:
@@ -26,7 +31,10 @@ def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
             print('Operação inválida! Excedeu o limite de saque!\n ')   
         else:
             saldo-=valor
-            extrato+= f'Saque de {valor:.2f}\n'
+            horario = t.localtime()
+            formatted_time = t.strftime("%H:%M:%S -- %Y-%m-%d", horario)
+
+            extrato.append(f'Saque de: {valor:.2f} as {formatted_time}')
             numero_saques+=1 
             print('Saque realizado com sucesso!')
     else:
@@ -41,7 +49,8 @@ def imprimir_extrato(contas):
     conta = fco.verifica_numero_conta(contas, num_conta)
     if conta:
         print('\n-------------------EXTRATO-------------------\n')
-        print(conta['extrato'])
+        for i in conta['extrato']:
+            print(i)
         print(conta['saldo'])
         
         print('\n---------------------------------------------\n')

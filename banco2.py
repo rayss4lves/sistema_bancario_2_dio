@@ -50,7 +50,7 @@ def main():
             conta_encontrada = False
             num_conta = int(input('Informe o numero da conta: '))
             
-            conta = fc.verifica_numero_conta(contas, num_conta)
+            conta = fco.verifica_numero_conta(contas, num_conta)
             
             if conta:
                 conta_encontrada = True
