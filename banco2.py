@@ -12,7 +12,6 @@ def menu():
         return int(input('= '))
     except:
         print('\n')
-#cria uma nova conta
 
       
 def main(): 
@@ -86,8 +85,7 @@ def main():
         elif op == 8:
             fco.listar_contas(contas)
         elif op == 9:
-            fc.listar_clientes(clientes)
-            
+            fc.listar_clientes(clientes)    
         elif op == 10:
             print('Programa encerrado...\n ')
             break

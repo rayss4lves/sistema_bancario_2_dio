@@ -1,4 +1,4 @@
-           
+ #Cadastra um novo cliente          
 def cadastrar_cliente(clientes):
     cpf = input('Informe o seu cpf(somente numeros): ')
     
@@ -14,14 +14,14 @@ def cadastrar_cliente(clientes):
     clientes.append({"nome": nome, "cpf": cpf, "data_nascimento": data_nascimento, "endereco": endereco})
     print('Cliente cadastrado com sucesso!')
 
-
+#verifica se o cliente já existe analizando o cpf
 def verificar_cliente_cpf(clientes, cpf):
     for cliente in clientes:
         if cliente['cpf'] == cpf:
             return cliente
     return None
  
-    
+   
 def consultar_cliente(clientes):
     cpf = input('Informe o seu cpf(somente numeros): ')
     cliente = verificar_cliente_cpf(clientes, cpf)

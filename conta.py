@@ -1,7 +1,9 @@
-import clientes as fc
+from clientes import verificar_cliente_cpf
+
+#cria uma nova conta
 def criar_conta(AGENCIA, contas, clientes, saldo, extrato, numero_saques):
     cpf = input('Informe o seu cpf(somente numeros): ')
-    cliente = fc.verificar_cliente_cpf(clientes, cpf)
+    cliente = verificar_cliente_cpf(clientes, cpf)
     if cliente:
         numero_conta  = len(contas)+1    
         contas.append({'agencia': AGENCIA, 'numero_conta': numero_conta, 'saldo': saldo,'extrato': extrato, 'Numero_saques': numero_saques, 'cliente': cliente})

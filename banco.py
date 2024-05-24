@@ -1,6 +1,7 @@
-import conta as fco
+from conta import verifica_numero_conta
 import time as t
 
+#Função para depositar o dinheiro na conta
 def depositar(valor, saldo, extrato):
     if valor > 0:
         saldo += valor
@@ -39,18 +40,19 @@ def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
                 extrato.append(f'Saque de: {valor:.2f} as {formatted_time}')
                 numero_saques+=1 
                 print('Saque realizado com sucesso!')
-        except:
+        except ValueError:
             print('Valor errado!')
     else:
         print('\nFalha na operação!\nO numero de saques permitidos foi excedido!\n ')
 
     return saldo, extrato, numero_saques
  
- 
+
+#função para imprimir o extrato de uma conta 
 def imprimir_extrato(contas):
     num_conta = int(input('Informe o numero da conta: '))
             
-    conta = fco.verifica_numero_conta(contas, num_conta)
+    conta = verifica_numero_conta(contas, num_conta)
     if conta:
         print('\n-------------------EXTRATO-------------------\n')
         for i in conta['extrato']:
