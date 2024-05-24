@@ -9,7 +9,7 @@ def depositar(valor, saldo, extrato):
         formatted_time = t.strftime("%H:%M:%S -- %Y-%m-%d", horario)
 
 
-        extrato.append(f'Deposito de: {valor:.2f} as {formatted_time}')
+        extrato.append(f'Deposito de: \t{valor:.2f}\t\tHorarrio:\t{formatted_time}')
         print('Deposito relizado com sucesso!\n')
                
     else:
@@ -37,7 +37,7 @@ def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
                 horario = t.localtime()
                 formatted_time = t.strftime("%H:%M:%S -- %Y-%m-%d", horario)
 
-                extrato.append(f'Saque de: {valor:.2f} as {formatted_time}')
+                extrato.append(f'Saque de: \t{valor:.2f}\t\tHorarrio:\t{formatted_time}')
                 numero_saques+=1 
                 print('Saque realizado com sucesso!')
         except ValueError:
@@ -54,12 +54,12 @@ def imprimir_extrato(contas):
             
     conta = verifica_numero_conta(contas, num_conta)
     if conta:
-        print('\n-------------------EXTRATO-------------------\n')
+        print('\n-------------------------------EXTRATO------------------------------\n')
         for i in conta['extrato']:
             print(i)
         print(conta['saldo'])
         
-        print('\n---------------------------------------------\n')
+        print('\n--------------------------------------------------------------------\n')
     else:
         print('\nFalha na operação!\nConta não encontrada!')
  
