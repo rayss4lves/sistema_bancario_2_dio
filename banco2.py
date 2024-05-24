@@ -44,7 +44,7 @@ def main():
                     conta['saldo'], conta['extrato'] = fb.depositar(valor, conta['saldo'], conta['extrato'])
                                                             
                 if not conta_encontrada:
-                    print('A operação falhou! Crie uma conta primeiro!\n')     
+                    print('Falha na operação!\nCrie uma conta primeiro!\n')     
             except: 
                 print('Valor errado!\n')   
             print('\n---------------------------------------------\n')
@@ -59,9 +59,9 @@ def main():
                 if conta:
                     if conta['Numero_saques'] <= LIMITE_SAQUES:
                         conta_encontrada = True
-                        conta['saldo'], conta['extrato'], conta['numero_saques'] = fb.sacar(conta['saldo'], conta['extrato'], conta['numero_saques'], LIMITE_SAQUES, limite)
+                        conta['saldo'], conta['extrato'], conta['Numero_saques'] = fb.sacar(conta['saldo'], conta['extrato'], conta['Numero_saques'], LIMITE_SAQUES, limite)
                 if not conta_encontrada:
-                    print('A operação falhou! Crie uma conta primeiro!\n')   
+                    print('\nFalha na operação!\nCrie uma conta primeiro!\n')   
             except ValueError:
                 print('Valor errado!\n')
                  

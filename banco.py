@@ -12,7 +12,7 @@ def depositar(valor, saldo, extrato):
         print('Deposito relizado com sucesso!\n')
                
     else:
-        print('Operação falhou, tente novamente!!\n')
+        print('\nFalha na operação!\n')
     return saldo, extrato
 
 
@@ -28,9 +28,9 @@ def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
             limite_excedido = valor > limite
                     
             if saldo_excedido: 
-                print('Operação inválida! Saldo insuficiente!\n ')
+                print('\nFalha na operação!\nSaldo insuficiente!\n ')
             elif limite_excedido:
-                print('Operação inválida! Excedeu o limite de saque!\n ')   
+                print('\nFalha na operação!\nExcedeu o limite de saque!\n ')   
             else:
                 saldo-=valor
                 horario = t.localtime()
@@ -42,7 +42,7 @@ def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
         except:
             print('Valor errado!')
     else:
-        print('Operação inválida! O numero de saques permitidos foi excedido!\n ')
+        print('\nFalha na operação!\nO numero de saques permitidos foi excedido!\n ')
 
     return saldo, extrato, numero_saques
  
@@ -59,5 +59,5 @@ def imprimir_extrato(contas):
         
         print('\n---------------------------------------------\n')
     else:
-        print('Conta não encontrada!!')
+        print('\nFalha na operação!\nConta não encontrada!')
  
