@@ -1,10 +1,10 @@
 import clientes as fc
-def criar_conta(AGENCIA, contas, clientes, saldo, extrato):
+def criar_conta(AGENCIA, contas, clientes, saldo, extrato, numero_saques):
     cpf = input('Informe o seu cpf(somente numeros): ')
     cliente = fc.verificar_cliente_cpf(clientes, cpf)
     if cliente:
         numero_conta  = len(contas)+1    
-        contas.append({'agencia': AGENCIA, 'numero_conta': numero_conta, 'saldo': saldo,'extrato': extrato, 'cliente': cliente})
+        contas.append({'agencia': AGENCIA, 'numero_conta': numero_conta, 'saldo': saldo,'extrato': extrato, 'Numero_saques': numero_saques, 'cliente': cliente})
         print('Conta criada com sucesso!')
     else:
         print('Cliente não cadastrado!!')
@@ -17,21 +17,28 @@ def verificar_conta_cpf(contas, cpf):
             return conta
     return None
 
+
 #lista todas as contas cadastradas
 def listar_contas(contas):
-    for conta in contas:
-        print(conta)
+    if contas:
+        for conta in contas:
+            print(conta)
+    else:
+        print('Crie uma conta primeiro\n')
 
 
 #imprime as informações de uma conta
 def consultar_conta(contas):
-    num_conta = int(input('Informe o numero da conta: '))
-            
-    conta = verifica_numero_conta(contas, num_conta)
-    if conta:
-        print(conta)
-    else:
-        print('Conta não existente!\n')
+    
+    try: 
+        num_conta = int(input('Informe o numero da conta: '))      
+        conta = verifica_numero_conta(contas, num_conta)
+        if conta:
+            print(conta)
+        else:
+            print('Conta não existente!\n')
+    except:
+        print('Valor errado!\n')
  
 #verifica se existe uma conta com o numero informado pelo usuário
 def verifica_numero_conta(contas, num_conta):

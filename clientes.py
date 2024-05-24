@@ -33,5 +33,8 @@ def consultar_cliente(clientes):
 
 #função para listar todos os clientes cadastrados
 def listar_clientes(clientes):
-    for cliente in clientes:
-        print(cliente)
+    if clientes:
+        for cliente in clientes:
+            print(cliente)
+    else:
+        print('Cadastre um cliente primeiro!\n')
